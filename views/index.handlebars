@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="jumbotron">
+        <div class="row">
+            <h1>Eat-A-Burger <img src="assets/img/burger.png" width="175" height="175"></h1>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Eat ME!</h2>
+                <ul>
+                    {{#each burgers}}
+                        {{#unless devoured}}
+                            <li>
+                	            {{burger_name}}
+                                <button class="devour btn btn-secondary btn-sm" data-id="{{this.id}}">DEVOUR!</button>
+                            </li>
+                        {{/unless}}
+                    {{/each}}
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <h2>Consumed</h2>
+                <ul>
+                    {{#each burgers}}
+                        {{#if devoured}}
+                            <li>
+                	            {{burger_name}}
+                                <button class="delete btn btn-secondary btn-sm" data-id="{{this.id}}">DELETE</button>
+                            </li>
+                        {{/if}}
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <h4>Add a Burger</h4>
+            <form class="create-form">
+                <div class="form-group">
+                    <label for="burger">Burger Name:</label>
+                    <input type="text" id="burger">
+                </div>
+                <button class="create-burger btn btn-danger" type="submit">Add Burger</button>
+            </form>
+        </div>
+    </div>
+</div>
