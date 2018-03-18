@@ -3,7 +3,9 @@ const router = express.Router();
 const db = require('../models/');
 
 router.get('/', (req, res) => {
-  db.Burger.findAll({}).then( data => res.render('index', { burgers: data }));
+  db.Burger.findAll({
+    order: ['burger_name']
+  }).then( data => res.render('index', { burgers: data }));
 });
 
 router.post('/api/burgers', (req, res) => {
